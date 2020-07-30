@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- I am a sole author of this work -->
+<html>
+<head>
+    <title>Mid Term</title> 
+	<link rel="stylesheet" href="./jquery.mobile/jquery.mobile-1.4.2.css" />
+    <script src="./jquery-1.11.0.js" type="text/javascript"></script>
+    <script src="./jquery.mobile/jquery.mobile-1.4.2.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width"/>
+	<script>
+	$(document).ready(function() {
+			
+			
+	$.ajax({
+	type: "GET",
+	url: "cars.xml",
+	dataType: "xml",
+	success:parseXML
+	});
+	
+	function parseXML(xml)
+	{
+	
+		$( "#toyota" ).click(function() {
+		$("#head").find("h1").html($(xml).find('car:eq(0)').find('name').text());
+			$("#content").html("<img src= " + $(xml).find('car:eq(0)').find('pic').text() + " height=100>");
+		$("#content").append("<h2> Car Type: " + $(xml).find('car:eq(0)').find('name').text() + "</h2>");
+		$("#content").append("<h3> Country: " + $(xml).find('car:eq(0)').find('country').text() + "</h3>");
+		$("#content").append($(xml).find('car:eq(0)').find('description').text());
+		});
+		
+		$( "#ford" ).click(function() {
+		$("#head").find("h1").html($(xml).find('car:eq(1)').find('name').text());
+		$("#content").html("<img src= " + $(xml).find('car:eq(1)').find('pic').text() + " height=100>");
+		$("#content").append("<h2> Car Type: " + $(xml).find('car:eq(1)').find('name').text() + "</h2>");
+		$("#content").append("<h3> Country: " + $(xml).find('car:eq(1)').find('country').text() + "</h3>");
+		$("#content").append($(xml).find('car:eq(1)').find('description').text());
+		});
+	}
+			
+			
+			
+});
+	
+	</script>
+</head>
+<body>
+<section id="firstpage" data-role="page">
+        <div data-role="header">
+			
+            <h1>CARS</h1>
+			
+			
+        </div>
+        <div class="ui-content"   >
+            <ul data-role="main" data-inset="true">
+				<li><a id ="toyota" href="#main" class="ui-btn ui-icon-arrow-r ui-btn-icon-right">TOYOTA</a></li>
+				<li><a id="ford" href="#main" class="ui-btn ui-icon-arrow-r ui-btn-icon-right">FORD</a></li>
+				<li><a href="#dialog" class="ui-btn ui-icon-info ui-btn-icon-bottom">Show page "popup" (as a dialog)</a></li>
+			</ul>
+           
+        </div>
+        <div class="ui-content" data-role="navbar" >
+            <ul>
+				<li><a href="Cars.html" class="ui-btn ui-icon-home ui-btn-icon-top">Home</a> </li>
+				<li><a id="toyota" href="#main" class="ui-btn ui-icon-gear ui-btn-icon-top">TOYOTA</a> </li>
+				<li><a id="ford" href="#main" class="ui-btn ui-icon-gear ui-btn-icon-top">FORD</a> </li>
+			</ul>
+		</div>
+
+    </section>
+	
+	<section id="main" data-role="page">
+        <div id="head" data-role="header">
+			<a href="Cars.html" data-role="button" data-icon="delete" data-iconpos="notext"  ></a>
+            <h1></h1>
+			
+        </div>
+        <div id = "content" class="ui-content" >
+
+        </div>
+		
+        <div class="ui-content" data-role="navbar" >
+            <ul>
+				<li><a href="Cars.html" class="ui-btn ui-icon-home ui-btn-icon-top">Home</a> </li>
+				<li><a id="toyota" href ="#main" class="ui-btn ui-icon-gear ui-btn-icon-top">TOYOTA</a> </li>
+				<li><a id="toyota" href ="#main" class="ui-btn ui-icon-gear ui-btn-icon-top">FORD</a> </li>
+			</ul>
+		</div>
+
+    </section>
+	
+	
+	<div id="dialog" data-role="popup" data-dialog="true">
+	<div data-role="header">
+            <h1>Required Popup</h1>
+	</div>
+    <div id="result" class="ui-content" >
+			Jatin Rampal's Mid Term Submission
+	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<cars>
+	<car>
+		<name>Toyota</name>
+		<country>Japan</country>
+		<pic>toyota.jpeg</pic>
+		<description>Toyota has announced that it will recall a total of 778,000 units that may have been manufactured
+			with improperly tightened nuts on the rear suspension.</description>
+	</car>
+	<car>
+		<name>Ford</name>
+		<country>USA</country>
+		<pic>ford.jpg</pic>
+		<description>Toyota has announced that it will recall a total of 325,000 units that may have been manufactured
+			with improper fuel tanks exposed to early corossion.</description>
+	</car>
+</cars>
